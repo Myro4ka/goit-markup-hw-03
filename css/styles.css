@@ -53,7 +53,7 @@ img {
 
   padding-left: 15px;
   padding-right: 15px;
-  outline: 2px solid rgb(4, 238, 43);
+  /* outline: 2px solid rgb(4, 238, 43); */
 }
 .visually-hidden {
   position: absolute;
@@ -73,9 +73,13 @@ img {
 .page-header {
   font-weight: 500;
   letter-spacing: 0.02em;
+  border-bottom: 1px solid #ececec;
 }
-.page-header .container,
-.page-header nav {
+.page-header .container {
+  display: flex;
+  align-items: center;
+}
+.navigation {
   display: flex;
   align-items: center;
 }
@@ -138,13 +142,9 @@ img {
   background-color: var(--accent-bg-color);
   text-align: center;
 }
-.hero .container {
-  display: flex;
-  flex-direction: column;
-}
 .hero-title {
-  margin-top: 0;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
+  max-width: 696px;
 
   color: var(--primary-white-color);
   font-weight: 900;
@@ -154,7 +154,6 @@ img {
   text-transform: uppercase;
 }
 .hero-button {
-  /* -------display: block (не на ширину батька) */
   display: inline-block;
   border-radius: 4px;
   padding: 10px 32px;
@@ -172,6 +171,7 @@ img {
 .hero.button:hover,
 .hero.button:focus {
   background-color: #188ce8;
+  cursor: pointer;
 }
 
 /* features */
@@ -180,6 +180,10 @@ img {
   margin-bottom: 0;
   padding-top: 94px;
   padding-bottom: 94px;
+}
+/* перебиваємо нижній padding для наст. секції */
+.features.section {
+  padding-bottom: 47px;
 }
 .features-list {
   display: flex;
@@ -206,8 +210,8 @@ img {
 }
 
 /* services */
-.services {
-  padding-top: 0;
+.services.section {
+  padding-top: 47px;
 }
 .services-list {
   display: flex;
@@ -238,11 +242,14 @@ img {
 }
 .team-card {
   margin-top: 0;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   padding-bottom: 30px;
   /* width: calc((100%-90px) / 4); */
 
   background-color: var(--primary-white-color);
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 /* .team-card:not(:last-child) {
   margin-right: 30px;
@@ -251,15 +258,13 @@ img {
   margin-bottom: 30px;
 }
 .team-member {
-  margin-top: 0;
-  margin-bottom: 10px;
+  margin: 0 auto 10px;
   font-weight: 500;
   font-size: 16px;
   text-align: center;
 }
 .team-desc {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0 auto;
   color: var(--second-text-color);
   font-size: 16px;
   text-align: center;
@@ -277,9 +282,12 @@ img {
   margin-bottom: 20px;
   color: var(--primary-white-color);
 }
+.footer .logo:focus {
+  color: var(--accent-color);
+}
 address {
-  margin-top: 0;
-  margin-bottom: 0;
+  width: 231px;
+  margin: 0;
   font-style: normal;
 }
 .footer-contacts li:not(:last-child) {
@@ -288,30 +296,46 @@ address {
 
 .footer-contacts .location {
   color: var(--primary-white-color);
-  line-height: 1.71;
+  line-height: 1.5;
 }
 .footer-contacts .link {
   color: rgba(255, 255, 255, 0.6);
-  line-height: 1.71;
+  line-height: 1.5;
+}
+.footer-contacts a:hover,
+.footer-contacts a:focus {
+  color: var(--accent-color);
 }
 
 /* ----Стилі для potfolio.html---- */
 .filter {
   display: flex;
+  justify-content: center;
   margin-bottom: 50px;
+  gap: 8px;
 }
 .button {
+  padding: 6px 22px;
+
   background-color: var(--second-bg-color);
   color: var(--primary-text-color);
   font-weight: 500;
   font-family: inherit;
   font-size: 16px;
   line-height: 1.63;
+  border: none;
+  border-radius: 4px;
+}
+.button:first-child {
+  padding: 6px 25px;
 }
 .button:hover,
 .button:focus {
   background-color: var(--accent-color);
   color: var(--primary-white-color);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
 }
 .works {
   display: flex;
@@ -327,13 +351,22 @@ address {
 /* .works li:nth-child(3n) {
   margin-right: 0;
 } */
+
+.works-desc {
+  padding: 20px 24px;
+  margin: 0;
+  border: 1px solid #eeeeee;
+}
 .works-title {
+  margin-top: 0;
+  margin-bottom: 4px;
   color: var(--primary-text-color);
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
 }
 .works-type {
+  margin: 0;
   color: var(--second-text-color);
   font-size: 16px;
   line-height: 1.88;
