@@ -134,9 +134,7 @@ img {
   color: var(--accent-color);
 }
 
-/* hero (bgc вказано тимчасово для відображення тексту)  */
 .hero {
-  /* min-height: 600px; */
   padding-top: 200px;
   padding-bottom: 200px;
   background-color: var(--accent-bg-color);
@@ -168,8 +166,8 @@ img {
   letter-spacing: 0.06em;
   text-align: center;
 }
-.hero.button:hover,
-.hero.button:focus {
+.hero-button:hover,
+.hero-button:focus {
   background-color: #188ce8;
   cursor: pointer;
 }
